@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<h1> R$F LYF </h1>
+		<hr/>	
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-8">
+		{% for obj in object_list %}
+		{% include "posts/snippet/post.html" with obj=obj details=False %}
+		{% endfor %} 
+	</div>
+	<div class="col-4">
+		<h4>Suggested Posts</h3>
+		<div class="list-group">
+			{% for obj in random_list %}
+			<a href="{{ obj.get_absolute_url }}" class="list-group-item list-group-item-action">{{ obj.title }}</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+		<div class="card">
+  <div class="card-body">
+  	{% if obj.image %}
+  	<a href="{{ obj.get_absolute_url }}">
+  	<img class= "card-img-top img-fluid" src="{{ obj.image }}" alt="{{ obj.title }} image">
+  	</a>
+  	{% endif %}
+     <h1 class="card-title">{{ obj.title }}</h1>
+     <h6 class="card-subtitle mb-2 text-muted"></h6>
+     {% if not detail %}
+     <p class="card-text">{{ obj.content|linebreaks|truncatewords:15 }}</p>
+     <a href="{{ obj.get_absolute_url }}" class="card-link">View</a>
+    {% else %}
+    <p class="card-text">{{ obj.content|linebreaks }}</p>
+    {% endif %}
+    </div>
+   </div>
